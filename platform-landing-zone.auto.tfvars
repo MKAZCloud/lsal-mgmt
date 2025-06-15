@@ -30,7 +30,7 @@ custom_replacements = {
 
     # Resource group names
     management_resource_group_name               = "rg-management-$${starter_location_01}"
-    connectivity_hub_primary_resource_group_name = "rg-uks-lsal-prod-hub-001"
+    connectivity_hub_primary_resource_group_name = "rg-hub-$${starter_location_01}"
     dns_resource_group_name                      = "rg-hub-dns-$${starter_location_01}"
     ddos_resource_group_name                     = "rg-hub-ddos-$${starter_location_01}"
     asc_export_resource_group_name               = "rg-asc-export-$${starter_location_01}"
@@ -44,7 +44,7 @@ custom_replacements = {
     dcr_vm_insights_name                    = "dcr-vm-insights"
 
     # Resource provisioning global connectivity
-    ddos_protection_plan_enabled = false
+    ddos_protection_plan_enabled = true
 
     # Resource provisioning primary connectivity
     primary_firewall_enabled                              = true
@@ -56,11 +56,11 @@ custom_replacements = {
     primary_bastion_enabled                               = true
 
     # Resource names primary connectivity
-    primary_virtual_network_name                                 = "vnet-uks-lsal-prod-hub-001"
-    primary_firewall_name                                        = "afw-uks-prod-grp-001"
-    primary_firewall_policy_name                                 = "fwp-afw-uks-prod-grp-001"
-    primary_firewall_public_ip_name                              = "pip-afw-uks-prod-grp-001"
-    primary_route_table_firewall_name                            = "rt-afw-uks-prod-grp-001"
+    primary_virtual_network_name                                 = "vnet-hub-$${starter_location_01}"
+    primary_firewall_name                                        = "fw-hub-$${starter_location_01}"
+    primary_firewall_policy_name                                 = "fwp-hub-$${starter_location_01}"
+    primary_firewall_public_ip_name                              = "pip-fw-hub-$${starter_location_01}"
+    primary_route_table_firewall_name                            = "rt-hub-fw-$${starter_location_01}"
     primary_route_table_user_subnets_name                        = "rt-hub-std-$${starter_location_01}"
     primary_virtual_network_gateway_express_route_name           = "vgw-hub-er-$${starter_location_01}"
     primary_virtual_network_gateway_express_route_public_ip_name = "pip-vgw-hub-er-$${starter_location_01}"
