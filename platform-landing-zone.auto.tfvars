@@ -268,7 +268,27 @@ hub_and_spoke_vnet_settings = {
 hub_and_spoke_vnet_virtual_networks = {
   primary = {
     hub_virtual_network = {
-      name                          = "$${primary_virtual_network_name}"
+      
+        # >>> START OF CUSTOM ADDITION: Spoke VNet - vnet-uks-lsal-prod-avd-001 <<<
+        spoke_virtual_networks = {
+          avd-lsal-prod = {
+            name                = "vnet-uks-lsal-prod-avd-001"
+            location            = "uksouth"
+            resource_group_name = "rg-uks-lsal-prod-avd-001"
+            address_space       = ["10.1.0.0/24"]
+            route_table_name    = "rt-uks-lsal-prod-avd-001"
+            subnets = {
+              PooledDesktopSubnet = {
+                name                        = "PooledDesktopSubnet"
+                address_prefixes            = ["10.1.0.0/27"]
+                network_security_group_name = "nsg-uks-lsal-prod-avd-001"
+              }
+            }
+          }
+        }
+        # >>> END OF CUSTOM ADDITION <<<
+
+name                          = "$${primary_virtual_network_name}"
       resource_group_name           = "$${connectivity_hub_primary_resource_group_name}"
       location                      = "$${starter_location_01}"
       address_space                 = ["$${primary_hub_virtual_network_address_space}"]
